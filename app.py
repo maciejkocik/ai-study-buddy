@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st # pyright: ignore[reportMissingImports]
 from generator import generate_quiz_from_text
 from quiz_logic import check_answer, calculate_percentage
 
