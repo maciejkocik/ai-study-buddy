@@ -74,6 +74,14 @@ if st.session_state.quiz_data:
                 st.error(f"Pytanie {i+1}: ❌ Źle. Poprawna to: {correct_choice}")
                 st.info(f"Wyjaśnienie: {q['wyjasnienie']}")
         
-        # Podsumowanie
+        # Wyświetlanie wyniku końcowego
         percentage = calculate_percentage(score, total)
+        if percentage >= 80:
+            st.balloons() 
+            st.success("🎉 REWELACJA! Jesteś mistrzem!")
+        elif percentage >= 50:
+            st.info("👍 Dobry wynik!")
+        else:
+            st.warning("💪 Jeszcze trochę nauki i będzie super!")
+
         st.metric(label="Twój Wynik", value=f"{percentage:.0f}%", delta=f"{score}/{total} pkt")
